@@ -7,7 +7,9 @@
     <ul v-for="documentation in personalDocumentation" class="ps-5">
       <li>
         <h3 d-flex flex-row align-items-center>{{ documentation.description }}
-          <a class="fw-bold fs-4" v-if="documentation.linkName !== ''" :href=documentation.goToLink>({{ documentation.linkName }})</a>
+          <a class="fw-bold fs-4" v-if="documentation.linkName !== ''" :href=documentation.goToLink target="_blank">
+            ({{ documentation.linkName }})
+          </a>
         </h3>
       </li>
     </ul>
