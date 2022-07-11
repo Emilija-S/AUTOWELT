@@ -1,25 +1,30 @@
 <template>
-  <main class="container">
+  <main class="container py-5">
     <div class="row">
       <introduction-part/>
       <steps-to-lease-a-car/>
-      <personDocumentation :person-documentation="personDocumentation"/>
-      <personDocumentation :person-documentation="lawPersonDocumentation"/>
-      <i class="fs-5 text-secondary text-start">* НАПОМЕНА: ДОКОЛКУ ПОДАТОЦИТЕ КОИ ГИ ОСТАВАТЕ ПРИ ПРЕД-ОДОБРУВАЊЕТО НЕ СЕ ТОЧНИ И ПРЕЦИЗНИ МОЖНО Е АПЛИКАЦИЈАТА ЗА ЛИЗИНГ ДА ВИ БИДЕ ОДБИЕНА ИЛИ ПРОЛОНГИРАНА
-        ОД СТРАНА НА БАНКАТА И ПРИТОА ГО ГУБИТЕ ОСТАВЕНИОТ КАПАР.</i>
+      <personal-documentation :personal-documentation="ordinaryPersonDocumentation"/>
+      <personal-documentation :personal-documentation="lawPersonDocumentation"/>
+      <i class="fs-5 text-secondary text-start">* НАПОМЕНА: ДОКОЛКУ ПОДАТОЦИТЕ КОИ ГИ ОСТАВАТЕ ПРИ ПРЕД-ОДОБРУВАЊЕТО НЕ СЕ ТОЧНИ
+        И ПРЕЦИЗНИ МОЖНО Е АПЛИКАЦИЈАТА ЗА ЛИЗИНГ ДА ВИ БИДЕ ОДБИЕНА ИЛИ ПРОЛОНГИРАНА
+        ОД СТРАНА НА БАНКАТА И ПРИТОА ГО ГУБИТЕ ОСТАВЕНИОТ КАПАР.
+      </i>
     </div>
   </main>
 </template>
 
 <script>
-
-
 import IntroductionPart from "@/components/IntroductionPart";
 import StepsToLeaseACar from "@/components/StepsToLeaseACar";
-import PersonDocumentation from "@/components/PersonDocumentation";
+import PersonalDocumentation from "@/components/PersonalDocumentation";
 
 export default {
   name: 'HomeView',
+  components: {
+    IntroductionPart,
+    StepsToLeaseACar,
+    PersonalDocumentation,
+  },
   data() {
     return {
       lawPersonDocumentation: [
@@ -59,7 +64,7 @@ export default {
           goToLink: 'https://s-leasing.mk/content/Izjava-za-vistinski-sopstvenik.pdf'
         }
       ],
-      personDocumentation: [
+      ordinaryPersonDocumentation: [
         {
           description: 'ПРОФАКТУРА',
           linkName: '',
@@ -107,11 +112,6 @@ export default {
         }
       ]
     }
-  },
-  components: {
-    PersonDocumentation,
-    StepsToLeaseACar,
-    IntroductionPart
   }
 }
 </script>
